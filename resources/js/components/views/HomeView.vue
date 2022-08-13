@@ -1,3 +1,25 @@
 <template>
-    <div>Trang chủ</div>
+    <div>
+        <category v-for="category in categories" :category="category" :key="category.id"></category>
+    </div>
 </template>
+
+<script>
+    import Category from '../Category.vue';
+
+    export default {
+        components: { Category },
+
+        data () {
+            return {
+                categories: [],
+            }
+        },
+
+        mounted () {
+            axios.get('api/categories').then((response) => {
+                this.categories = response.data;
+            });
+        }
+    }
+</script>

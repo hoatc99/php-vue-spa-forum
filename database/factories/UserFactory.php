@@ -14,6 +14,8 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        static $password;
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),

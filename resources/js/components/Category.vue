@@ -1,12 +1,12 @@
 <template>
-    <div class="panel panel-success">
-        <div class="panel-heading">
+    <div class="card mb-3">
+        <div class="card-header">
             <router-link :to="{ name: 'Category', params: { categoryId: category.id, categoryName: category.name } }" v-text="category.name"></router-link>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
             {{ category.description }}
         </div>
-        <div class="panel-footer">
+        <div class="card-footer">
             <span>{{ category.numberOfPosts }}</span>
             <small>Chủ đề</small>
         </div>

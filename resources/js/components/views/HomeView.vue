@@ -17,9 +17,14 @@
         },
 
         mounted () {
-            axios.get('api/categories').then((response) => {
+            axios.get(location.origin + '/api/categories').then((response) => {
                 this.categories = response.data;
             });
+            let breadcrumb = [{
+                name: 'Categories',
+                link: '/',
+            }];
+            this.$emit('update-breadcrumb', breadcrumb);
         }
     }
 </script>

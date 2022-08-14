@@ -13,20 +13,20 @@ class CategoryController extends Controller
     }
 
     public function topics(Request $request, $categoryId) {
-        $page = $request->input('page');
+        // $page = $request->input('page');
 
-        Paginator::currentPageResolver(function() use ($page) {
-            return $page;
-        });
+        // Paginator::currentPageResolver(function() use ($page) {
+        //     return $page;
+        // });
 
         $topics = Category::findOrFail($categoryId)
             ->topics()
             ->orderBy('created_at', 'desc')
-            ->paginate(5);
+            ->paginate(3);
 
-        if ($topics->isEmpty()) {
-            return response('The provided page exceeds the available number of pages', 404);
-        }
+        // if ($topics->isEmpty()) {
+        //     return response('The provided page exceeds the available number of pages', 404);
+        // }
 
         return $topics;
     }

@@ -12,8 +12,10 @@ Vue.use(Router)
 export default new Router({
     routes: [
         { path: '/', name: 'Home', component: HomeView },
-        { path: '/category', name: 'Category', component: CategoryView },
-        { path: '/topic', name: 'Topic', component: TopicView },
+        { path: '/category/:categoryId', name: 'Category', component: CategoryView },
+        { path: '/topic/:topicId', name: 'Topic', component: TopicView },
+        { path: '/login', name: 'Login', component: TopicView },
+        { path: '/register', name: 'Register', component: TopicView },
 
         { path: '*', component: NotFound },
     ],
